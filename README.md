@@ -24,11 +24,18 @@ git clone https://github.com/yourusername/EmbedLLM.git
 cd EmbedLLM
 ```
 
-2. Create and activate the conda environment: 
+### Option 1: Using Conda
+Create and activate the conda environment: 
 (Remember to change the prefix path in the environment.yml file to the path of your conda environment)
 ```bash
 conda env create -f environment.yml
 conda activate embedllm
+```
+
+### Option 2: Using pip
+
+```bash
+pip install -r requirements.txt
 ```
 
 ## Dataset
