@@ -97,10 +97,6 @@ if __name__ == "__main__":
     parser.add_argument("--num-neighbors", type=int, default=131) # We found 131 to be the best number of neighbors from validation set
     parser.add_argument("--save-tensors", action='store_true', 
                         help="Save processed CSV data as tensors") # We suggest to save the tensors to avoid re-processing the data
-    parser.add_argument("--save-train-x-path", type=str, default='../data/train_x.pth')
-    parser.add_argument("--save-train-y-path", type=str, default='../data/train_y.pth')
-    parser.add_argument("--save-test-x-path", type=str, default='../data/test_x.pth')
-    parser.add_argument("--save-test-y-path", type=str, default='../data/test_y.pth')
     args = parser.parse_args()
 
     print("Start Initializing Dataset...")
@@ -108,7 +104,7 @@ if __name__ == "__main__":
         train_x, train_y, test_x, test_y = load_tensor_data(
             args.train_x_path, args.train_y_path, args.test_x_path, args.test_y_path)
     else:
-        train_x, train_y, test_x, test_y = load_csv_data(args.train_csv, args.test_csv)
+        train_x, train_y, test_x, test_y = load_csv_data(args.train_csv_path, args.test_csv_path)
         if args.save_tensors:
             print("Saving tensors...")
             save_tensor_data(train_x, train_y, args.save_train_x, args.save_train_y)
